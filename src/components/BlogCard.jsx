@@ -14,7 +14,7 @@ const BlogCard = ({blog, deleteBlog}) => {
         <img className='w-70 h-40' src={blog.imageUrl} alt={blog.id}></img>
         <div className='flex flex-col gap-3'>
             <h1 className='text-3xl'>{blog.title}</h1>
-            {/* <p>{blog.content?.slice(0,100)}...</p> */}
+            <p>{blog.content?.slice(0,100)}...</p>
             <button
               onClick={() =>{ blog.views+=1; navigate(`/blog/${blog.id}`, { state: { blog } });}}
               className='w-fit bg-red-200 rounded-full px-2 p-1'
