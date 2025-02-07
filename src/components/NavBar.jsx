@@ -9,10 +9,10 @@ const NavBar = () => {
       <h1 className='text-6xl text-bold font-serif'>Blog</h1>
       <div>
         <ul className='flex gap-8'>
-            <Link to='/'><li>Home</li></Link>
-            <Link to='/about'><li>About</li></Link>
-            <Link to='/blogs'><li>Blogs</li></Link>
-            <Link to='/addblog'><li>Add Blogs</li></Link>
+            <Link to='/'><li className='border-b-black border-b-2 hover:border-b-2 hover:border-b-white'>Home</li></Link>
+            <Link to='/about'><li className='border-b-black border-b-2 hover:border-b-2 hover:border-b-white'>About</li></Link>
+            <Link to='/blogs'><li className='border-b-black border-b-2 hover:border-b-2 hover:border-b-white'>Blogs</li></Link>
+            <Link to='/addblog'><li className='border-b-black border-b-2 hover:border-b-2 hover:border-b-white'>Add Blogs</li></Link>
         </ul>
       </div>
 
