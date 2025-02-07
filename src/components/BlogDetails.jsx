@@ -15,16 +15,16 @@ const BlogDetails = () => {
 
       const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
 
-      // Find the specific blog and update views
-      // const updatedBlogs = blogs.map((b) =>
-      //   b.id === blog.id ? { ...b, views: b.views + 1 } : b
-      // );
+  //     // Find the specific blog and update views
+  //     // const updatedBlogs = blogs.map((b) =>
+  //     //   b.id === blog.id ? { ...b, views: b.views + 1 } : b
+  //     // );
 
-      // Save back to localStorage
-      // localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
+  //     // Save back to localStorage
+  //     // localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
 
-      // // Update local state
-      // setUpdatedBlog((prev) => ({ ...prev, views: prev.views + 1 }));
+  //     // // Update local state
+  //     // setUpdatedBlog((prev) => ({ ...prev, views: prev.views + 1 }));
     }
   }, [blog]);
 

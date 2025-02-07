@@ -1,11 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Heart, Eye, Pencil, Trash2} from 'lucide-react'
 import { useNavigate } from 'react-router-dom';
 
-const BlogCard = ({blog, deleteBlog}) => {
+const BlogCard = ({blog, deleteBlog, blogs}) => {
 
   const navigate =useNavigate();
   const [likes,setLike] = useState(blog.likes);
+
+  useEffect(() => {
+    localStorage.setItem("blogs", JSON.stringify(blogs));
+
+    console.log(blogs)
+  }, [likes]);
  
   
   console.log(blog.imageUrl);

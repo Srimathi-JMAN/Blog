@@ -4,7 +4,7 @@ import BlogCard from './BlogCard'
 
 const BlogsList = ({blogs , setBlogs}) => {
 
-  //const [blogs,setBlogs] = useState(blogs);
+  // const [blogs,setBlogs] = useState(blogs);
 
   // async function getBlogs(){
   //   const response =await fetch(`https://api.slingacademy.com/v1/sample-data/blog-posts`);
@@ -29,7 +29,7 @@ const BlogsList = ({blogs , setBlogs}) => {
     <div className='grid grid-cols-2 bg-gray-100'>
         {
           blogs && blogs?.length>0 && ( blogs.map((blog)=>(
-            <BlogCard blog={blog} key={blog.id} deleteBlog={deleteBlog} setBlogs={setBlogs}/>
+            <BlogCard blog={blog} key={blog.id} deleteBlog={deleteBlog} blogs={blogs}/>
           ))
           
         )
