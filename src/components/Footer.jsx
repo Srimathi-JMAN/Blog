@@ -3,7 +3,7 @@ import { Instagram, Facebook, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <div className='bg-black p-10 text-white flex flex-col mt-10 items-center gap-10'>
+    <div className='bg-black p-10 text-white flex flex-col items-center gap-10'>
         <div className='flex justify-around gap-10 w-full'>
             <div className='flex flex-col justify-center items-center'>
                 <h1>Categories</h1>
