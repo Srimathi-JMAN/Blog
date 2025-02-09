@@ -1,45 +1,46 @@
 import React, { useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const EditBlog = ({blogs,setBlogs}) => {
-  // const location = useLocation();
-  // const navigate = useNavigate();
-  // const blog = location.state?.blog;
-  // console.log(blog);
+const AddBlog = ({addBlog}) => {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [imageUrl,setImageUrl] = useState("")
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) =>{
+    e.preventDefault();
+    if(title.trim() && content.trim())
+    {
+      try{
+        const response = axios.post('http://localhost:5000/addBlog',{
+          title,
+          content,
+          imageUrl
+        });
+        addBlog(response.data.blog);
+        console.log(response.data.message);
+      }
+      catch(err){
+        console.log("Error posting data!",err);
+      }
+
+      
+      setTitle("");
+      setContent("");
+      setImageUrl("");
+      navigate('/blogs');
+    }
+  }
+
+
   
-  // const editBlog = blogs.find((b)=>{
-  //   if(b.id === blog.id)
-  //   {
-  //     b.title=title;
-  //     b.
-  //   }
-  // })
 
-  // console.log(editBlog)
-
-  // const [title, setTitle] = useState(blog.title);
-  // const [content, setContent] = useState(blog.content);
-  // const [imageUrl,setImageUrl] = useState(blog.imageUrl)
-  
-
-  // const handleSubmit = (e) =>{
-  //   e.preventDefault();
-  //   editBlog.title=title;
-  //   editBlog.content=setContent;
-  //   editBlog.imageUrl=imageUrl;
-  //   setBlogs([...blogs,editBlog]);
-  //   setTitle("");
-  //   setContent("");
-  //   setImageUrl("");
-  //   navigate('/blogs', )
-
-  // }
 
   return (
     <div className="h-screen flex flex-col justify-center items-center p-4 rounded shadow-md">
-        <h2 className="text-xl font-bold mb-4">Edit Blog</h2>
+        <h2 className="text-xl font-bold mb-4">Add Blog</h2>
         <form onSubmit={handleSubmit} className='flex flex-col items-center shadow-md p-10'>
-          <input type="hidden" id="blogId"/>
           <div className="mb-4">
             <label className="block text-gray-700">Title</label>
             <input type="text" id="blogTitle" className="w-full p-2 border rounded" placeholder="Enter blog title" value={title} onChange={(e)=>setTitle(e.target.value)} required/>
@@ -64,4 +65,4 @@ const EditBlog = ({blogs,setBlogs}) => {
   )
 }
 
-export default EditBlog
+export default AddBlog
