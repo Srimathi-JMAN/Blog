@@ -1,9 +1,9 @@
-import 'src/App.css';
-import BlogsList from 'src/components/BlogsList';
+import './App.css';
+import BlogsList from './components/BlogsList';
 import Footer from './components/Footer';
-import NavBar from 'src/components/NavBar';
-import Home from 'src/components/Home';
-import About from 'src/components/About';
+import NavBar from './components/NavBar';
+import Home from './components/Home';
+import About from './components/About';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import AddBlog from './components/AddBlog';
 import BlogDetails from './components/BlogDetails';
@@ -14,7 +14,7 @@ function App() {
     <div className='flex flex-col min-h-screen'>
       <BrowserRouter>
         <NavBar/>
-        <div className="flex-grow">
+        <div className="flex-grow bg-gray-100">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

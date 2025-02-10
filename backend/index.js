@@ -4,11 +4,13 @@ const dotenv =require('dotenv');
 const mongoose = require('mongoose');
 
 const app =express()
+require('dotenv').config();
 app.use(cors())
-app.use(express.json());  // ✅ Add this line before defining routes
+app.use(express.json());
 
+const MONGOURI = process.env.MONGOURI;
 const PORT = 5000;
-const MONGOURI = 'mongodb+srv://srimathi_1106:sri123@srimathip.zfeb5xf.mongodb.net/?retryWrites=true&w=majority&appName=SrimathiP';
+
 
 mongoose.connect(MONGOURI)
 .then(()=> console.log('MongoDB is connected'))
@@ -16,18 +18,17 @@ mongoose.connect(MONGOURI)
     console.log('DB not connected : ',err);
 })
 
-
 const blog_Schema = new mongoose.Schema({
     title: {type: String, required:true},
     content: {type: String, required:true},
     imageUrl: {type: String},
     likes: {type: Number, default:0},
     views: {type: Number, default:0},
-    comments: [{type:String , default:[]}],
 })
 
 const blog_Model = mongoose.model('Blogs',blog_Schema);
 
+// To get all the Blogs
 app.get('/blogs',async (req,res)=>{
     try{
         const data =await blog_Model.find();
@@ -39,6 +40,7 @@ app.get('/blogs',async (req,res)=>{
     }
 })
 
+// To add a new Blog
 app.post('/addBlog', async(req,res)=>{
     try{
         const {title,content, imageUrl} = req.body;
@@ -56,7 +58,7 @@ app.post('/addBlog', async(req,res)=>{
     }
 })
 
-
+// To update the likes for the particular Blog
 app.patch('/addLike/:id',async(req,res)=>{
     try{
         const blogId = req.params.id;
@@ -74,6 +76,7 @@ app.patch('/addLike/:id',async(req,res)=>{
     }
 })
 
+// To update views of the Blog
 app.patch('/addView/:id',async(req,res)=>{
     try{
         const blogId = req.params.id;
@@ -91,8 +94,8 @@ app.patch('/addView/:id',async(req,res)=>{
     }
 })
 
+// To delete the Blog
 app.delete('/deleteBlog/:id',async (req,res)=>{
-    
     try{
         const blogId = req.params.id;
         const response =  await blog_Model.findByIdAndDelete(blogId);
@@ -104,6 +107,7 @@ app.delete('/deleteBlog/:id',async (req,res)=>{
     }
 })
 
+// To edit the Blog
 app.put('/editBlog/:id',async(req,res)=>{
     try{
         const {title,content,imageUrl,likes,views} = req.body;
@@ -116,6 +120,7 @@ app.put('/editBlog/:id',async(req,res)=>{
     }
 })
 
+// To get the details of the particular Blog
 app.get('/blog/:id',async(req,res)=>{
     
     try{
@@ -132,8 +137,6 @@ app.get('/blog/:id',async(req,res)=>{
         res.status(500).json({message:'Internal server error in retrieving blog!'});
     }
 })
-
-
 
 app.listen(PORT,()=>{
     console.log(`Server is running at port ${PORT}`);

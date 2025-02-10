@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
-import BlogCard from 'src/components/BlogCard'
+import BlogCard from './BlogCard'
 import axios from 'axios';
 
 const BlogsList = () => {
-
   const [blogs, setBlogs] = useState([]);
 
   const getData = async () =>{

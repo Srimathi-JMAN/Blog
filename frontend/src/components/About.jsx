@@ -4,7 +4,6 @@ const About = () => {
   return (
     <div className="p-6 bg-white">
       <h1 className="text-4xl text-center font-bold mb-4">About Us</h1>
-
       <div className='flex items-center'>
         <div>
         <p className="text-lg text-gray-700 leading-relaxed">
@@ -24,24 +23,13 @@ const About = () => {
         <p className="text-lg text-gray-700 leading-relaxed mt-3">
           We are a group of passionate writers, tech enthusiasts, and storytellers dedicated to bringing you the best content possible. Stay connected with us as we continue to grow and evolve.
         </p>
-
         <h2 className="text-2xl font-bold mt-6">Stay Connected</h2>
         <p className="text-lg text-gray-700 leading-relaxed mt-3">
           Follow us on our social media channels and subscribe to our newsletter to never miss an update. We’d love to hear from you!
         </p>
       </div>
-        
-        
         <img className="w-200 h-150 object-cover mb-4 rounded-lg" src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjg1Ny0wMjRkLXguanBn.jpg" alt="My Blog" />
       </div>
-      
-
-      
-
-      
-
-      
-
     </div>
   );
 }

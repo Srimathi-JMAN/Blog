@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-
 const NavBar = () => {
   return (
     <div className='flex justify-between items-center p-5 bg-black text-white'>
@@ -15,7 +14,6 @@ const NavBar = () => {
             <Link to='/addblog'><li className='border-b-black border-b-2 hover:border-b-2 hover:border-b-white'>Add Blogs</li></Link>
         </ul>
       </div>
-
     </div>
   )
 }

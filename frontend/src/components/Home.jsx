@@ -1,7 +1,5 @@
 import React from 'react'
-import LandingPage from 'src/components/LandingPage'
-import LandingPageImage from 'src/assets/landing_writing_image.jpg'
-import { Heart, MessageCircle, Share2 } from 'lucide-react';
+import LandingPage from './LandingPage'
 
 const Home = () => {
   return (

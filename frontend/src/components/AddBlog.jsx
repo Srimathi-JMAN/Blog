@@ -24,18 +24,12 @@ const AddBlog = ({addBlog}) => {
       catch(err){
         console.log("Error posting data!",err);
       }
-
-      
       setTitle("");
       setContent("");
       setImageUrl("");
       navigate('/blogs');
     }
   }
-
-
-  
-
 
   return (
     <div className="h-screen flex flex-col justify-center items-center p-4 rounded shadow-md">
@@ -49,16 +43,11 @@ const AddBlog = ({addBlog}) => {
             <label className="block text-gray-700">Content</label>
             <textarea id="blogContent" className="w-full p-2 border rounded" rows="4" placeholder="Enter blog content" value={content} onChange={(e)=>setContent(e.target.value)} required></textarea>
           </div>
-          
-
           <div className="mb-4">
             <label className="block text-gray-700">Image URL</label>
             <input type="text" placeholder="Enter Image URL" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} className="w-full p-2 border rounded"/>
             {imageUrl && <img src={imageUrl} alt="Preview" className="w-full h-40 object-cover mb-2" />}
-            
           </div>
-          
-
           <button type="submit" className="bg-black  text-white px-4 py-2 rounded">Save Blog</button>
         </form>
       </div>

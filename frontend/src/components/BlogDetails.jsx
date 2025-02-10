@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 const BlogDetails = () => {
   const navigate = useNavigate();
   const {id} = useParams();
-  
   const [blog,setBlog] =useState(null);
   const [loading,setLoading] = useState(true);
 

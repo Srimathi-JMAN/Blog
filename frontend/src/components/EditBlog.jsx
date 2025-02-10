@@ -10,7 +10,6 @@ const EditBlog = () => {
   const [imageUrl,setImageUrl] = useState("")
   const navigate = useNavigate();
 
-
   useEffect(() => {
     const getBlog = async () =>{
       try{
@@ -72,7 +71,6 @@ const EditBlog = () => {
             <label className="block text-gray-700">Content</label>
             <textarea id="blogContent" className="w-full p-2 border rounded" rows="4" placeholder="Enter blog content" value={content} onChange={(e)=>setContent(e.target.value)} required></textarea>
           </div>
-          
 
           <div className="mb-4">
             <label className="block text-gray-700">Image URL</label>

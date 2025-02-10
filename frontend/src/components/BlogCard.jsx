@@ -47,12 +47,9 @@ const BlogCard = ({blog, deleteBlog, blogs}) => {
               <button 
                 onClick={() =>{addLike(blog._id);}}
               ><Heart color="black" fill="red"/></button><span>{likes}</span>
-
               <Eye /><span>{views}</span>
               <button onClick={()=> navigate(`/editBlog/${blog._id}`)}><Pencil /></button>
-             
               <button onClick={()=> deleteBlog(blog._id)}><Trash2 color='red'/></button>
-            
             </div>
         </div>
     </div>

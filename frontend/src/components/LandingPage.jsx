@@ -1,5 +1,5 @@
 import React from 'react'
-import LandingPageImage from 'src/assets/landing_writing_image.jpg'
+import LandingPageImage from '../assets/landing_writing_image.jpg'
 
 const LandingPage = () => {
   return (
